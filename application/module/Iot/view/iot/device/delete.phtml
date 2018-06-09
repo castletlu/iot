@@ -1,0 +1,21 @@
+<div class="row">
+<h1 class="col-md12">Device Unregistration</h1>
+</div>
+
+<div class="row">
+    <div class="col-md12">
+         <h2>Please confirm the following device name you are going to delete</h2>
+         <p><strong>name: <?php echo $device->name; ?></strong></p>
+         <p>description: <?php echo $device->description; ?></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md12 form-group">
+         <form action="<?php echo $this->url('device', ['action'=>'delete', 'id'=>$device->id]); ?>" method="post">
+             <input type="hidden" name="id" value="<?php echo $device->id; ?>" />
+             <input class="btn btn-warning" type="submit" name="confirm" value="Yes" />
+             <input  class="btn btn-primary" type="submit" name="confirm" value="No" />
+         </form>
+    </div>
+ </div>
