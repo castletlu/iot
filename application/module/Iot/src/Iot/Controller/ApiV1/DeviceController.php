@@ -35,11 +35,24 @@ class DeviceController extends AbstractApiController
         $data->humidity = round($uploaded->moist, 3);
         $this->getDataModel()->save($data);
 
-        $json = new JsonModel(
-            array(
-                'result' => 2
+                
+       
+        $jsonArray =  array(
+                'result' => 1,
+                'feedFood' => 0,
+                'feedWater' => 0
             )
-        );
+      
+        if (round($uploaded->temp, 3) < 50){
+            $jsonArray[feedFood] => 1;
+        }
+        
+        if (round($uploaded->moist, 3) > 50){
+            $jsonArray[feedWater] => 1;
+        }
+        
+         $json = new JsonModel($jsonArray);
+        
 
         return $json;
     }
