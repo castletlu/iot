@@ -52,6 +52,14 @@ class DeviceController extends AbstractApiController
         }
         
          $json = new JsonModel($jsonArray);
+                
+        /* using json object in python 2
+        import json
+        jsonData = '{"name": "Frank", "age": 39}'
+        jsonToPython = json.loads(jsonData)
+        jsonToPython['name'] = "Thanh"
+        print jsonToPython       
+        */
         
 
         return $json;
